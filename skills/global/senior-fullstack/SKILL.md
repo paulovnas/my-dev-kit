@@ -1,6 +1,6 @@
 ---
 name: senior-fullstack
-description: Comprehensive fullstack orchestrator skill for building complete web applications with React, Next.js, Node.js, GraphQL, and PostgreSQL. Includes project scaffolding, code quality analysis, architecture patterns, embedded best-practice packs for Fastify, Next.js, React performance, Service Worker, and TypeScript conventions, plus mandatory project memory grounding and updates via .memory/product.md, .memory/structure.md, and .memory/tech.md.
+description: Comprehensive fullstack orchestrator skill for building complete web applications with React, Next.js, Node.js, GraphQL, and PostgreSQL. Includes project scaffolding, code quality analysis, architecture patterns, embedded best-practice packs for Fastify, Next.js, React performance, Service Worker, and TypeScript conventions, plus mandatory project memory grounding and updates via .memory/product.md, .memory/structure.md, and .memory/tech.md. Also enforces automatic migration execution for database schema changes (Laravel and Supabase), escalating to the user only when execution fails.
 ---
 
 # Senior Fullstack
@@ -150,6 +150,7 @@ For mixed fullstack requests, combine packs as needed:
 6. Route frontend changes through `ui-ux-pro-max`.
 7. Route context creation and refresh through `project-memory`.
 8. For browser MCP tests, use port inference protocol and ask user confirmation if URL is unknown.
+9. Execute required migrations whenever schema changes are part of the implementation.
 
 ## Mandatory Post-Change Quality Gate
 
@@ -171,6 +172,40 @@ Use project scripts first (in `package.json`):
 
 - Do not skip these checks after modifications unless the user explicitly asks to skip.
 - If checks cannot run, explain why and what is missing.
+
+## Database Migration Execution Policy
+
+Whenever database schema changes are introduced (new field, removed field, type change, constraints, indexes), migration execution is mandatory.
+
+### Mandatory behavior
+
+1. Create or update migration files as part of the change.
+2. Execute migrations automatically in the current environment.
+3. Confirm migration success and report status.
+4. If migration execution fails, provide the exact error and ask the user to run the command/tool when available.
+
+### Laravel migration flow
+
+Use Laravel workflow by default in Laravel projects:
+
+1. generate/edit migration file;
+2. execute `php artisan migrate`;
+3. if command fails, ask user to run `php artisan migrate` and share output.
+
+### Supabase migration flow
+
+Use Supabase migration workflow in Supabase projects:
+
+1. if Supabase MCP is installed/available, execute migration through MCP first (`apply_migration` for DDL and related MCP calls for validation/listing);
+2. if MCP is not available, use Supabase CLI migration flow;
+3. execute migration against target environment (`supabase db push` or project-standard command);
+4. if execution fails, ask user to run the migration command and share output.
+
+### Do not skip
+
+- Never leave schema changes unapplied.
+- Only defer execution when environment/access limitations prevent running migration commands.
+- In defer cases, clearly hand off the exact command to the user.
 
 ## Core Capabilities
 
