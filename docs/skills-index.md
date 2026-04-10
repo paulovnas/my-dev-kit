@@ -6,6 +6,7 @@ Gerado automaticamente por scripts/sync-global-skills.ps1.
 | --- | --- | --- |
 | canvas-design | skills/global/canvas-design | 83 |
 | chrome-devtools | skills/global/chrome-devtools | 1 |
+| design-system-memory | skills/global/design-system-memory | 3 |
 | find-skills | skills/global/find-skills | 1 |
 | ia-das-cavernas | skills/global/ia-das-cavernas | 2 |
 | project-memory | skills/global/project-memory | 5 |

@@ -19,7 +19,11 @@ Objetivo: manter um baseline de skills versionado e publicar rapidamente no ambi
 - `ui-ux-pro-max`:
   - politica `shadcn-first` para projetos web;
   - usa MCP do shadcn sempre que disponivel;
-  - evita copy tecnico verboso em labels/titulos (texto direto ao ponto).
+  - evita copy tecnico verboso em labels/titulos (texto direto ao ponto);
+  - exige `.memory/design-system.md` e pede `design-system-memory` quando faltar.
+- `design-system-memory`:
+  - cria/atualiza `.memory/design-system.md`;
+  - gera design system completo (tokens, primitives, componentes e estados) com base Tailwind + React/Next.
 
 ## Estrutura
 

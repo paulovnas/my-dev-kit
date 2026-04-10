@@ -13,7 +13,9 @@ pwsh -NoProfile -File .\scripts\sync-global-skills.ps1 -Mode both
    - `.memory/product.md`
    - `.memory/structure.md`
    - `.memory/tech.md`
+   - `.memory/design-system.md`
 3. Se faltar contexto, usar `project-memory`.
+4. Se faltar design system, usar `design-system-memory`.
 
 ## 3) Executar com senior-fullstack
 

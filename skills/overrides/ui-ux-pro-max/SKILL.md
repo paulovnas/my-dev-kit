@@ -1,6 +1,6 @@
 ---
 name: ui-ux-pro-max
-description: "UI/UX design intelligence for web and mobile with shadcn-first component strategy. Always prioritize shadcn/ui components for web projects, install missing components when needed, and fallback to custom Tailwind components only when shadcn is not present. Also enforce concise, intuitive user-facing copy (avoid technical verbosity in labels/titles). Includes 50+ styles, 161 color palettes, 57 font pairings, 161 product types, 99 UX guidelines, and 25 chart types across 10 stacks (React, Next.js, Vue, Svelte, SwiftUI, React Native, Flutter, Tailwind, shadcn/ui, and HTML/CSS)."
+description: "UI/UX design intelligence for web and mobile with shadcn-first component strategy and design-system memory enforcement. Always prioritize shadcn/ui components for web projects, install missing components when needed, fallback to custom Tailwind components only when shadcn is not present, and require `.memory/design-system.md` (request `design-system-memory` skill when missing). Also enforce concise, intuitive user-facing copy (avoid technical verbosity in labels/titles). Includes 50+ styles, 161 color palettes, 57 font pairings, 161 product types, 99 UX guidelines, and 25 chart types across 10 stacks (React, Next.js, Vue, Svelte, SwiftUI, React Native, Flutter, Tailwind, shadcn/ui, and HTML/CSS)."
 ---
 
 # UI/UX Pro Max - Design Intelligence
@@ -55,6 +55,26 @@ For web projects (React, Next.js, Vite, React Router, Astro), always follow this
 2. If available, use shadcn components by default.
 3. If required component is missing, install it before building custom UI.
 4. Only use custom Tailwind components when shadcn is not available in the project.
+
+## Design System Memory Requirement
+
+Before proposing or implementing UI changes, always check:
+
+- `.memory/design-system.md`
+
+If the file exists:
+
+1. use it as source of truth for tokens, components, states, and naming;
+2. keep UI decisions aligned with the documented design system.
+
+If the file does not exist:
+
+1. explicitly ask the user to run `design-system-memory` skill;
+2. do not assume a complete design system silently.
+
+Suggested message:
+
+`Para manter consistencia visual, preciso do arquivo .memory/design-system.md. Execute a skill design-system-memory para gerar esse arquivo e seguimos com a implementacao.`
 
 ### Required commands when shadcn is available
 
