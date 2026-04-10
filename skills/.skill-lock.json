@@ -1,0 +1,107 @@
+{
+  "version": 3,
+  "skills": {
+    "ui-ux-pro-max": {
+      "source": "smithery.ai",
+      "sourceType": "well-known",
+      "sourceUrl": "https://smithery.ai/skills/nextlevelbuilder/ui-ux-pro-max/.well-known/skills/ui-ux-pro-max/SKILL.md",
+      "skillFolderHash": "",
+      "installedAt": "2026-04-08T19:19:41.754Z",
+      "updatedAt": "2026-04-08T19:19:41.754Z"
+    },
+    "skill-creator": {
+      "source": "smithery.ai",
+      "sourceType": "well-known",
+      "sourceUrl": "https://smithery.ai/skills/anthropics/skill-creator/.well-known/skills/skill-creator/SKILL.md",
+      "skillFolderHash": "",
+      "installedAt": "2026-04-09T21:05:23.566Z",
+      "updatedAt": "2026-04-09T21:05:23.566Z"
+    },
+    "find-skills": {
+      "source": "vercel-labs/skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/vercel-labs/skills.git",
+      "skillPath": "skills/find-skills/SKILL.md",
+      "skillFolderHash": "3013fdeb8a11b10b1eb795ec3ae8bfca38f7c26d",
+      "installedAt": "2026-04-09T21:05:29.281Z",
+      "updatedAt": "2026-04-09T21:05:29.281Z"
+    },
+    "refactor": {
+      "source": "smithery.ai",
+      "sourceType": "well-known",
+      "sourceUrl": "https://smithery.ai/skills/github/refactor/.well-known/skills/refactor/SKILL.md",
+      "skillFolderHash": "",
+      "installedAt": "2026-04-09T21:06:04.779Z",
+      "updatedAt": "2026-04-09T21:06:04.779Z"
+    },
+    "canvas-design": {
+      "source": "smithery.ai",
+      "sourceType": "well-known",
+      "sourceUrl": "https://smithery.ai/skills/anthropics/canvas-design/.well-known/skills/canvas-design/SKILL.md",
+      "skillFolderHash": "",
+      "installedAt": "2026-04-09T21:18:38.562Z",
+      "updatedAt": "2026-04-09T21:18:38.562Z"
+    },
+    "theme-factory": {
+      "source": "smithery.ai",
+      "sourceType": "well-known",
+      "sourceUrl": "https://smithery.ai/skills/anthropics/theme-factory/.well-known/skills/theme-factory/SKILL.md",
+      "skillFolderHash": "",
+      "installedAt": "2026-04-09T21:18:55.826Z",
+      "updatedAt": "2026-04-09T21:18:55.826Z"
+    },
+    "chrome-devtools": {
+      "source": "smithery.ai",
+      "sourceType": "well-known",
+      "sourceUrl": "https://smithery.ai/skills/github/chrome-devtools/.well-known/skills/chrome-devtools/SKILL.md",
+      "skillFolderHash": "",
+      "installedAt": "2026-04-09T21:19:12.968Z",
+      "updatedAt": "2026-04-09T21:19:12.968Z"
+    },
+    "senior-fullstack": {
+      "source": "smithery.ai",
+      "sourceType": "well-known",
+      "sourceUrl": "https://smithery.ai/skills/davila7/senior-fullstack/.well-known/skills/senior-fullstack/SKILL.md",
+      "skillFolderHash": "",
+      "installedAt": "2026-04-09T21:19:33.585Z",
+      "updatedAt": "2026-04-09T21:19:33.585Z"
+    },
+    "supabase": {
+      "source": "supabase/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/supabase/agent-skills.git",
+      "skillPath": "skills/supabase/SKILL.md",
+      "skillFolderHash": "512c575a9b68d271682f9a39a01e4e9ea1156fa1",
+      "pluginName": "supabase",
+      "installedAt": "2026-04-10T21:27:32.150Z",
+      "updatedAt": "2026-04-10T21:27:35.665Z"
+    },
+    "supabase-postgres-best-practices": {
+      "source": "supabase/agent-skills",
+      "sourceType": "github",
+      "sourceUrl": "https://github.com/supabase/agent-skills.git",
+      "skillPath": "skills/supabase-postgres-best-practices/SKILL.md",
+      "skillFolderHash": "9e4dd36978eedd04efc649b4d431ab5ce4bb3896",
+      "pluginName": "postgres-best-practices",
+      "installedAt": "2026-04-10T21:27:32.173Z",
+      "updatedAt": "2026-04-10T21:27:35.642Z"
+    }
+  },
+  "dismissed": {
+    "findSkillsPrompt": true
+  },
+  "lastSelectedAgents": [
+    "amp",
+    "antigravity",
+    "cline",
+    "codex",
+    "cursor",
+    "deepagents",
+    "firebender",
+    "gemini-cli",
+    "github-copilot",
+    "kimi-cli",
+    "opencode",
+    "warp"
+  ]
+}

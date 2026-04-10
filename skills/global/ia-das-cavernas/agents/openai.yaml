@@ -1,0 +1,4 @@
+interface:
+  display_name: "IA das Cavernas"
+  short_description: "Respostas mínimas para economizar tokens"
+  default_prompt: "Use $ia-das-cavernas para responder com 3 a 6 palavras, sem narração e com ferramenta primeiro."
