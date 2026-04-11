@@ -1,5 +1,18 @@
 # Structure Memory
 
+## 0. Executive Snapshot (Compact)
+- Current architecture state in up to 10 bullets:
+- Critical module boundaries:
+- Main structural risks:
+- Last compaction date:
+
+## 0.1 Active Critical Decisions
+- DEC-STR-001:
+- DEC-STR-002:
+
+## 0.2 Archive References
+- Archive files and why they were archived:
+
 ## 1. Repository Snapshot
 - Root path:
 - Last update:

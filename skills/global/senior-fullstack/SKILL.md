@@ -1,6 +1,6 @@
 ---
 name: senior-fullstack
-description: Comprehensive fullstack orchestrator skill for building complete web applications with React, Next.js, Node.js, GraphQL, and PostgreSQL. Includes project scaffolding, code quality analysis, architecture patterns, embedded best-practice packs for Fastify, Next.js, React performance, Service Worker, and TypeScript conventions, plus mandatory project memory grounding and updates via .memory/product.md, .memory/structure.md, and .memory/tech.md. Also enforces automatic migration execution for database schema changes (Laravel and Supabase), escalating to the user only when execution fails.
+description: Comprehensive fullstack orchestrator skill for building complete web applications with React, Next.js, Node.js, GraphQL, and PostgreSQL. Includes project scaffolding, code quality analysis, architecture patterns, embedded best-practice packs for Fastify, Next.js, React performance, Service Worker, and TypeScript conventions, plus project memory grounding via .memory/product.md, .memory/structure.md, and .memory/tech.md with selective write-back (only high-signal changes). Also enforces automatic migration execution for database schema changes (Laravel and Supabase), escalating to the user only when execution fails.
 ---
 
 # Senior Fullstack
@@ -38,22 +38,61 @@ Before planning, architecture decisions, or implementation, always ground contex
 2. If `.memory` is missing, or any required file is missing, instruct the user to run `project-memory` skill to generate the baseline.
 3. If files are shallow/outdated, recommend refreshing them with `project-memory` before major work.
 4. Treat `.memory/*` as project source of truth for business and technical context unless user explicitly overrides.
-5. After relevant changes, update memory artifacts through `project-memory` (not only reading).
+5. Do not update memory by default after every change; write-back only when the Memory Write Gate approves.
 
-### Mandatory write-back to memory
+### Memory Write Gate (Selective Updates)
 
-Trigger `project-memory` updates whenever there is:
+Use this gate before any memory write-back. Update memory only when change has durable and reusable value.
 
-1. New business rule, KPI, scope change, or product decision.
-2. Architecture/module boundary change.
-3. Stack/dependency/infrastructure/security/performance decision change.
-4. Significant frontend UX/UI or navigation flow change.
+Hard triggers (always write):
 
-Expected write-back:
+1. New or changed business rule, KPI definition, scope contract, pricing/policy rule.
+2. Architecture or module-boundary decision affecting multiple features.
+3. Data model or integration contract change (API schema, event contract, auth model, migration strategy).
+4. Security/compliance/performance SLO decision.
+5. Production incident outcome that changes runbook/guardrails.
 
-- update `.memory/product.md` for business impact and product rationale;
-- update `.memory/structure.md` for module/flow impacts;
-- update `.memory/tech.md` for technical decisions and trade-offs.
+Scored triggers (write only if score >= 8/12):
+
+Score each criterion from 0-3:
+
+1. Impact: how much this changes behavior, delivery, or risk.
+2. Durability: expected lifetime of the decision (temporary vs long-lived).
+3. Reusability: how often this context will help future tasks.
+4. Risk/Cost of forgetting: potential regressions/confusion if not documented.
+
+Write if total >= 8.
+
+Do not write for low-signal changes:
+
+1. Pure refactor without behavioral impact.
+2. Cosmetic UI text/style tweaks with no product or flow impact.
+3. Local bugfix with narrow scope and no architectural implication.
+4. Routine dependency patch without policy/contract impact.
+5. Temporary investigation notes that are already resolved.
+
+If gate does not pass:
+
+- explicitly state `Memory write skipped (low-signal change).`
+- keep working normally without forcing `project-memory`.
+
+If gate passes, expected write-back:
+
+- update `.memory/product.md` only for business impact/rationale;
+- update `.memory/structure.md` only for module/flow/contract impacts;
+- update `.memory/tech.md` only for technical decisions, constraints, and trade-offs.
+- keep updates compact and append archival links when details are too long.
+
+Memory checkpoint at end of task:
+
+1. summarize what changed in one short list;
+2. apply Memory Write Gate;
+3. if gate passes, update only the affected memory file(s);
+4. if gate fails, explicitly report skip and do not write memory.
+
+Reference:
+
+- `references/memory-write-policy.md`
 
 ### How to instruct the user
 
@@ -67,7 +106,7 @@ Use direct guidance like:
 
 ### Skill routing rules
 
-1. Use `project-memory` when context is missing, outdated, or after major decisions to persist project knowledge.
+1. Use `project-memory` when context is missing/outdated, or when Memory Write Gate indicates a high-signal change.
 2. Use `ui-ux-pro-max` whenever the task includes frontend visual/interface changes (layout, component behavior, interaction states, accessibility, responsive adjustments, design system updates).
 3. Keep specialist packs (Fastify/Next.js/React/Service Worker/TypeScript) as technical guardrails while orchestrating memory and UX skills.
 
@@ -76,7 +115,7 @@ Use direct guidance like:
 If the task touches frontend experience, always:
 
 1. apply `ui-ux-pro-max` for implementation/review quality;
-2. propagate relevant decisions to `.memory/*` via `project-memory`.
+2. propagate only high-signal decisions to `.memory/*` via Memory Write Gate.
 
 ## Chrome DevTools MCP Test Protocol
 
@@ -148,7 +187,7 @@ For mixed fullstack requests, combine packs as needed:
 4. Keep architecture and workflow alignment with this skill's native references.
 5. Reconcile decisions against `.memory/product.md`, `.memory/structure.md`, and `.memory/tech.md`.
 6. Route frontend changes through `ui-ux-pro-max`.
-7. Route context creation and refresh through `project-memory`.
+7. Route context creation and refresh through `project-memory` only when Memory Write Gate passes.
 8. For browser MCP tests, use port inference protocol and ask user confirmation if URL is unknown.
 9. Execute required migrations whenever schema changes are part of the implementation.
 

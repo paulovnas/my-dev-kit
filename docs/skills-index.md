@@ -9,9 +9,9 @@ Gerado automaticamente por scripts/sync-global-skills.ps1.
 | design-system-memory | skills/global/design-system-memory | 3 |
 | find-skills | skills/global/find-skills | 1 |
 | ia-das-cavernas | skills/global/ia-das-cavernas | 2 |
-| project-memory | skills/global/project-memory | 5 |
+| project-memory | skills/global/project-memory | 7 |
 | refactor | skills/global/refactor | 1 |
-| senior-fullstack | skills/global/senior-fullstack | 49 |
+| senior-fullstack | skills/global/senior-fullstack | 50 |
 | skill-creator | skills/global/skill-creator | 18 |
 | supabase | skills/global/supabase | 3 |
 | supabase-postgres-best-practices | skills/global/supabase-postgres-best-practices | 35 |

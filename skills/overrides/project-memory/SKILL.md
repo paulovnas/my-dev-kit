@@ -1,11 +1,11 @@
 ---
 name: project-memory
-description: Cria e mantem memoria tecnica e de negocio para projetos no padrao .memory (product.md, structure.md, tech.md). Use sempre que iniciar projeto novo, onboarding, descoberta de contexto, definicao de arquitetura, ou quando o senior-fullstack precisar de base solida de produto e tecnologia. Sempre aplique esta skill quando a pasta .memory nao existir ou estiver incompleta.
+description: Cria, mantem e otimiza memoria tecnica e de negocio para projetos no padrao .memory (product.md, structure.md, tech.md). Use sempre que iniciar projeto novo, onboarding, descoberta de contexto, definicao de arquitetura, quando o senior-fullstack precisar de base solida, e tambem para compactar/otimizar memorias existentes sem perder informacoes criticas.
 ---
 
 # Project Memory
 
-Skill para organizar memoria de projeto com foco em decisao de negocio e execucao tecnica.
+Skill para organizar memoria de projeto com foco em decisao de negocio e execucao tecnica, incluindo modo de compactacao segura para reduzir volume sem perder contexto essencial.
 
 ## Contrato Obrigatorio
 
@@ -19,6 +19,7 @@ Sempre cumprir este contrato:
 3. Se faltar qualquer arquivo, criar imediatamente com alto nivel de detalhe.
 4. Se os arquivos existirem, atualizar sem perder informacao valida.
 5. Permitir arquivos extras de memoria definidos pelo usuario, sem alterar o contrato base.
+6. Quando o usuario solicitar otimizacao/compactacao, executar processo de compactacao segura.
 
 ## Quando Usar
 
@@ -29,6 +30,22 @@ Use esta skill quando:
 - o usuario pedir para "entender o projeto" antes de implementar;
 - o `senior-fullstack` precisar de base de produto e tecnologia;
 - houver mudanca relevante de negocio, arquitetura ou stack.
+- as memorias crescerem demais e precisarem ser otimizadas/compactadas.
+
+## Modos de Operacao
+
+### Modo A: Bootstrap (criar do zero)
+
+Use quando `.memory` nao existir ou estiver incompleto.
+
+### Modo B: Update (atualizar memoria)
+
+Use quando arquivos existem, mas precisam refletir mudancas recentes.
+
+### Modo C: Optimize/Compact (otimizar sem perda critica)
+
+Use quando os arquivos estao extensos, redundantes, com repeticoes ou dificeis de recuperar.
+O objetivo e aumentar densidade de informacao sem apagar decisoes, contratos, riscos e contexto operacional importante.
 
 ## Fluxo de Execucao
 
@@ -44,7 +61,7 @@ Colete contexto do projeto por esta ordem:
 
 Se faltarem dados, registre lacunas explicitas em "Open Questions".
 
-### 2) Criar base de memoria
+### 2) Criar ou preparar base de memoria
 
 Use os templates:
 
@@ -64,7 +81,35 @@ Para sobrescrever com novo baseline:
 python scripts/init_memory.py --project-root . --force
 ```
 
-### 3) Preencher com profundidade maxima
+### 3) Otimizacao e compactacao segura (quando aplicavel)
+
+Antes de compactar semanticamente, execute compactacao estrutural segura:
+
+```bash
+python scripts/optimize_memory.py --project-root . --dry-run
+python scripts/optimize_memory.py --project-root .
+```
+
+Regras obrigatorias de compactacao segura:
+
+1. Criar backup versionado em `.memory/archive/compaction-<timestamp>/` antes de alterar.
+2. Preservar obrigatoriamente:
+   - decisoes de negocio/tecnicas ativas;
+   - contratos internos/externos e integracoes;
+   - riscos, dependencias, constraints e open questions;
+   - KPIs/metas e definicoes de sucesso.
+3. Remover redundancia (duplicatas, repeticoes e verbosidade) sem remover fatos importantes.
+4. Reorganizar para recuperacao rapida:
+   - resumo executivo no topo;
+   - itens criticos no inicio/fim de secoes longas;
+   - historico detalhado movido para arquivos de archive quando necessario.
+5. Registrar o que foi compactado, o que foi preservado e o que foi arquivado.
+
+Guia de referencia para compactacao focada em IA:
+
+- `references/memory-compaction-guide.md`
+
+### 4) Preencher com profundidade maxima
 
 Nao deixe seco ou generico. Cada arquivo deve trazer:
 
@@ -73,13 +118,14 @@ Nao deixe seco ou generico. Cada arquivo deve trazer:
 - riscos e trade-offs;
 - itens em aberto com proximo passo.
 
-### 4) Validar consistencia cruzada
+### 5) Validar consistencia cruzada
 
 Antes de finalizar:
 
 1. conferir se `product.md` conversa com `tech.md` (KPIs vs limites tecnicos);
 2. conferir se `structure.md` reflete o codigo atual;
 3. listar conflitos e incertezas em "Open Questions".
+4. verificar se nenhum item critico foi perdido no processo de compactacao.
 
 ## Padrao de Qualidade por Arquivo
 
@@ -129,4 +175,5 @@ Ao concluir, sempre reportar:
 
 1. arquivos criados/atualizados em `.memory/`;
 2. principais decisoes de produto e tecnologia capturadas;
-3. lacunas criticas que ainda precisam resposta do usuario.
+3. lacunas criticas que ainda precisam resposta do usuario;
+4. resultado da compactacao (antes/depois, itens preservados, itens arquivados), quando o modo Optimize/Compact for usado.

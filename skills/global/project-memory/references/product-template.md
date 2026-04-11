@@ -1,5 +1,18 @@
 # Product Memory
 
+## 0. Executive Snapshot (Compact)
+- Current product state in up to 10 bullets:
+- Most critical goals this cycle:
+- Main blockers and risks:
+- Last compaction date:
+
+## 0.1 Active Critical Decisions
+- DEC-001:
+- DEC-002:
+
+## 0.2 Archive References
+- Archive files and why they were archived:
+
 ## 1. Project Identity
 - Project name: {{PROJECT_NAME}}
 - Business domain:

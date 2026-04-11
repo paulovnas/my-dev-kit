@@ -1,5 +1,18 @@
 # Tech Memory
 
+## 0. Executive Snapshot (Compact)
+- Current technical state in up to 10 bullets:
+- Most critical constraints and trade-offs:
+- Main technical risks:
+- Last compaction date:
+
+## 0.1 Active Critical Decisions
+- DEC-TECH-001:
+- DEC-TECH-002:
+
+## 0.2 Archive References
+- Archive files and why they were archived:
+
 ## 1. Technical Identity
 - Project name: {{PROJECT_NAME}}
 - Last update:
